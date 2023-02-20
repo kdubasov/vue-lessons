@@ -3,7 +3,7 @@
     <div class="content">
       <h3 class="title">{{post.title}}</h3>
       <p class="text">
-        {{ post.text }}
+        {{ post.body }}
       </p>
       <small>{{ post.date }}</small>
     </div>

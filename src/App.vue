@@ -3,7 +3,9 @@
     <def-modal v-model:show="visibleModal">
       <post-form @createPost="createPost" />
     </def-modal>
+
     <blue-button @click="showModal">Создать пост</blue-button>
+
     <posts-list
         :posts="posts"
         @delete="deletePost"
@@ -16,6 +18,7 @@
   import PostsList from "./components/PostsList.vue";
   import DefModal from "./ui-components/DefModal.vue";
   import BlueButton from "./ui-components/BlueButton.vue";
+  import axios from "axios";
 
   export default {
     components: {
@@ -25,11 +28,7 @@
     },
     data() {
       return {
-        posts: [
-          {id:1, title: "JavaScript", text: "Статья о языке JavaScript", date: "11:25 12/02/2023"},
-          {id:2, title: "TypeScript", text: "Статья о языке TypeScript", date: "17:21 11/02/2023"},
-          {id:3, title: "GO", text: "Статья о языке GO", date: "23:16 11/12/2022"},
-        ],
+        posts: [],
         visibleModal: false,
       }
     },
@@ -43,8 +42,16 @@
       },
       showModal(){
         this.visibleModal = true;
+      },
+      async fetchPosts() {
+        const res = await axios.get("https://jsonplaceholder.typicode.com/posts?_limit=10")
+        this.posts = res.data;
+        console.log(res)
       }
     },
+    mounted() {
+      this.fetchPosts();
+    }
   }
 </script>
 

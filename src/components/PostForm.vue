@@ -6,7 +6,7 @@
         placeholder="Title"
     />
     <bg-gray-input
-        v-model="formAdd.text"
+        v-model="formAdd.body"
         type="text"
         placeholder="Text"
     />
@@ -22,7 +22,7 @@ export default {
     return {
       formAdd: {
         title: "",
-        text: "",
+        body: "",
       }
     }
   },
@@ -31,11 +31,11 @@ export default {
       const newPost = {
         id: Date.now(),
         title: this.formAdd.title,
-        text: this.formAdd.text,
+        body: this.formAdd.body,
         date: new Date(Date.now()).toLocaleDateString(),
       };
       this.$emit("createPost", newPost)
-      this.formAdd = {title: "", text: "",};
+      this.formAdd = {title: "", body: "",};
     },
   }
 }
