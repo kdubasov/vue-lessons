@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
   form.add-post{
-    width: 50%;
+    width: 100%;
     padding: .5em;
     border-radius: .25em;
     border: 2px solid rgba(145, 143, 143, 0.36);
