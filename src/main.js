@@ -7,6 +7,9 @@ import "./styles/index.css";
 //ui components
 import uiComponents from "./ui-components";
 
+//router
+import router from "./router.js";
+
 
 const app = createApp(App);
 
@@ -15,4 +18,6 @@ Object.values(uiComponents).forEach(component => {
     app.component(component.name, component)
 })
 
-app.mount('#app')
+app
+    .use(router)
+    .mount('#app')

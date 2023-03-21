@@ -9,7 +9,7 @@
     </div>
     <div class="bts">
       <blue-button @click="$emit('delete',post)">Удалить</blue-button>
-      <blue-button>Изменить</blue-button>
+      <blue-button @click="$router.push(`/posts/${post.id}`)">Открыть</blue-button>
     </div>
   </div>
 </template>
@@ -26,18 +26,18 @@ export default {
 </script>
 
 <style scoped>
-.post{
-  width: 50%;
-  margin: .5em 0;
-  padding: 1em;
-  border: 2px solid #008bff;
-  border-radius: 10px;
-}
+  .post{
+    width: 50%;
+    margin: .5em 0;
+    padding: 1em;
+    border: 2px solid #008bff;
+    border-radius: 10px;
+  }
 
-.post .bts{
-  margin-top: .5em;
-}
-.post .bts button:first-child{
-  margin-right: .5em;
-}
+  .post .bts{
+    margin-top: .5em;
+  }
+  .post .bts button:first-child{
+    margin-right: .5em;
+  }
 </style>
