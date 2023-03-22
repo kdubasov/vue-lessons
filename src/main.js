@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue'
+import store from "./store/store.js";
 
 //css
 import "./styles/index.css";
@@ -20,4 +21,5 @@ Object.values(uiComponents).forEach(component => {
 
 app
     .use(router)
+    .use(store)
     .mount('#app')
